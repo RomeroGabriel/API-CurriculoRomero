@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET interesses page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Api Curriculo Romero' });
+  res.render('interesses', { title: 'Api Curriculo Romero' });
 });
 
 module.exports = router;
