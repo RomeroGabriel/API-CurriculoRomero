@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Idiomas- Edição</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Idiomas-Edição</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Editar Idioma!</h3>
+                <form action="/idioma/edit" method="POST">
+                    <div class="form-group">
+                        <label for="idioma">Idioma:</label>
+                        <input id="idioma" value="<%= inte.idioma %>" type="text" class="form-control" name="idioma" placeholder="Digite novo idioma" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nivel">Nível:</label>
+                        <input id="nivel" value="<%= inte.nivel %>" type="text" class="form-control" name="nivel" placeholder="Digite o nível" />
+                    </div>
+                    <input type="hidden" name="id" value="<%= inte._id %>" />
+                    <button type="submit" class="btn btn-primary text-center">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
