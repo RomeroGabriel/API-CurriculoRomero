@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Portfolio</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Todos os Portfolios cadastrados</h3>
+
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <ul class="list-group">
+                        <% if(!inte || inte.length == 0) {%>
+                            <h4>Não existem Portfolio cadastrados</h4>
+                        <% } else { %>
+                            <% for (i of inte) { %>
+                        <li class="list-group-item">
+                            Titulo: <%= i.title %> - Data: <%= i.date %> - Descrição: <%= i.description %>
+                            <a href="/port/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                            <a href="/port/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                        </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <h3>Cadestre um novo portfolio!</h3>
+                <form action="/port/save" method="POST">
+                    <div class="form-group">
+                        <label for="title">Título:</label>
+                        <input id="title" type="text" class="form-control" name="title" placeholder="Digite o título" />
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Data:</label>
+                        <input id="date" type="date" class="form-control" name="date" placeholder="Digite a data" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descrição:</label>
+                        <input id="description" type="text" class="form-control" name="description" placeholder="Digite a descrição" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
