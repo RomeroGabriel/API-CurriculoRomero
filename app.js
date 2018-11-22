@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+var cors = require('cors');
 
 var indexRouter     = require('./routes/index');
 var interesseRouter = require('./routes/interesses');
@@ -11,6 +12,7 @@ var formacaoRouter = require('./routes/formacao');
 var atividadeRouter = require('./routes/atividade');
 var habilidadeRouter = require('./routes/habilidade');
 var idiomaRouter = require('./routes/idioma');
+var biografiaRouter = require('./routes/biografia');
 
 var app = express();
 
@@ -23,6 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors())
 
 app.use('/', indexRouter);
 app.use('/interesse', interesseRouter);
@@ -30,6 +33,7 @@ app.use('/formacao', formacaoRouter);
 app.use('/atividade', atividadeRouter);
 app.use('/habilidade', habilidadeRouter);
 app.use('/idioma', idiomaRouter);
+app.use('/biografia', biografiaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interesses- Edição</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Biografia-Edição</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Editar biografia!</h3>
+                <form action="/biografia/edit" method="POST">
+                    <div class="form-group">
+                        <label for="mini">Mini:</label>
+                        <textarea id="mini" class="form-control" name="mini" rows="5"><%= inte.mini %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inteira">Inteira:</label>
+                        <textarea id="inteira" class="form-control" name="inteira" rows="5"><%= inte.inteira %></textarea>
+                    </div>
+                    <input type="hidden" name="id" value="<%= inte._id %>" />
+                    <button type="submit" class="btn btn-primary text-center">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

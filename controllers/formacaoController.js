@@ -18,6 +18,13 @@ module.exports = {
         });
     },
 
+    getAllOut: function (req, res) {
+        modelFormacao.find(function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar formacao', error: err }) };
+            return res.json(inte);
+        });
+    },
+
     delete: function (req, res) {
         var id = req.params.id;
         modelFormacao.findByIdAndRemove(id, function (err, inte) {

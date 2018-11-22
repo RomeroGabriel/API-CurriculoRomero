@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Biografias</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Biografias</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Todas as biografias cadastradas</h3>
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <% if(!inte || inte.length == 0) {%>
+                    <h4>Não existem biografias cadastradas</h4>
+                    <% } else { %>
+                    <% for (i of inte) { %>
+                    <div class="form-group">
+                        <label for="mini">Mini</label>
+                        <textarea readonly class="form-control" id="mini" rows="5"><%= i.mini %></textarea>
+                        <label for="inteira">Inteira</label>
+                        <textarea readonly class="form-control" id="inteira" rows="5"><%= i.inteira %></textarea>
+                        <a href="/biografia/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                        <a href="/biografia/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <h3>Cadestre uma nova biografia!</h3>
+                <form action="/biografia/save" method="POST">
+                    <div class="form-group">
+                        <label for="mini">Mini:</label>
+                        <textarea id="mini" class="form-control" name="mini" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inteira">Inteira:</label>
+                        <textarea id="inteira" class="form-control" name="inteira" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

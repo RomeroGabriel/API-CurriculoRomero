@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/formacaoController.js');
+var controller = require('../controllers/biografiaController.js');
 
-/* GET formacao page. */
+/* GET atividade page. */
 router.get('/', controller.getAll);
-router.get('/getAll', controller.getAllOut);
 router.post('/save', controller.save);
 router.get('/delete/:id', controller.delete);
 router.get('/editarView/:id', controller.editarView);
