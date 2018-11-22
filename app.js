@@ -13,6 +13,7 @@ var atividadeRouter = require('./routes/atividade');
 var habilidadeRouter = require('./routes/habilidade');
 var idiomaRouter = require('./routes/idioma');
 var biografiaRouter = require('./routes/biografia');
+var contatoProfissaoRouter = require('./routes/contatoProfissao');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/atividade', atividadeRouter);
 app.use('/habilidade', habilidadeRouter);
 app.use('/idioma', idiomaRouter);
 app.use('/biografia', biografiaRouter);
+app.use('/contatoProfissao', contatoProfissaoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

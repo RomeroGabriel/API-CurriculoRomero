@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contato com a Profissão- Edição</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Contato com a Profissão-Edição</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Editar texto!</h3>
+                <form action="/contatoProfissao/edit" method="POST">
+                    <div class="form-group">
+                        <label for="profissao">Texto:</label>
+                        <textarea id="profissao" class="form-control" name="profissao" rows="5"><%= inte.profissao %></textarea>
+                    </div>
+                    <input type="hidden" name="id" value="<%= inte._id %>" />
+                    <button type="submit" class="btn btn-primary text-center">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

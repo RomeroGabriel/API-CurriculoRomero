@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/biografiaController.js');
+var controller = require('../controllers/contatoProfissaoController.js');
 
 /* GET atividade page. */
 router.get('/', controller.getAll);

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contato Profissão</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Contato Profissão</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Todas as informações cadastradas</h3>
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <% if(!inte || inte.length == 0) {%>
+                    <h4>Não existem informações cadastradas</h4>
+                    <% } else { %>
+                    <% for (i of inte) { %>
+                    <div class="form-group">
+                        <label for="mini">Texto</label>
+                        <textarea readonly class="form-control" id="mini" rows="5"><%= i.profissao %></textarea>
+                        <a href="/contatoProfissao/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                        <a href="/contatoProfissao/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                    </div>
+                    <% } %>
+                    <% } %>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <h3>Cadestre um novo texto!</h3>
+                <form action="/contatoProfissao/save" method="POST">
+                    <div class="form-group">
+                        <label for="profissao">Texto:</label>
+                        <textarea id="profissao" class="form-control" name="profissao" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

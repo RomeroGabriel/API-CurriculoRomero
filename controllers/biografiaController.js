@@ -19,6 +19,13 @@ module.exports = {
         });
     },
 
+    getLast: function (req, res) {
+        modelBiografia.findOne({}, {}, { sort: { 'created_at' : -1 } }, function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar biografia', error: err }) };
+            return res.json(inte);
+        });
+    },
+
     delete: function (req, res) {
         var id = req.params.id;
         modelBiografia.findByIdAndRemove(id, function (err, inte) {
