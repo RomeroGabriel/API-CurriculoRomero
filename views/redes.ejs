@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Redes Sociais</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Redes Sociais</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Todas as Redes Sociais cadastrados</h3>
+
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <ul class="list-group">
+                        <% if(!inte || inte.length == 0) {%>
+                            <h4>Não existem Redes Sociais cadastrados</h4>
+                        <% } else { %>
+                            <% for (i of inte) { %>
+                        <li class="list-group-item">
+                            Linkedin: <%= i.linkedin %> - GitHub: <%= i.github %>
+                            <a href="/rede/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                            <a href="/rede/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                        </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <h3>Cadestre uma configuração!</h3>
+                <form action="/rede/save" method="POST">
+                    <div class="form-group">
+                        <label for="linkedin">Linkedin:</label>
+                        <input id="linkedin" type="text" class="form-control" name="linkedin" placeholder="Digite link linkedin" />
+                    </div>
+                    <div class="form-group">
+                        <label for="github">GitHub:</label>
+                        <input id="github" type="text" class="form-control" name="github" placeholder="Digite link github" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
