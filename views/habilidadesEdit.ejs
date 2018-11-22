@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Habilidades- Edição</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Habilidades-Edição</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Editar aabilidade!</h3>
+                <form action="/habilidade/edit" method="POST">
+                    <div class="form-group">
+                        <label for="habilidade">Atividade:</label>
+                        <input id="habilidade" value="<%= inte.habilidade %>" type="text" class="form-control" name="habilidade" placeholder="Digite nova habilidade" />
+                    </div>
+                    <input type="hidden" name="id" value="<%= inte._id %>" />
+                    <button type="submit" class="btn btn-primary text-center">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

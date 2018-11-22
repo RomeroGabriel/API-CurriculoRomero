@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Atividades</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Habilidades</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Todas as Habilidades cadastradas</h3>
+
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <ul class="list-group">
+                        <% if(!inte || inte.length == 0) {%>
+                            <h4>Não existem atividades cadastrados</h4>
+                        <% } else { %>
+                            <% for (i of inte) { %>
+                        <li class="list-group-item">
+                            <%= i.habilidade %>
+                            <a href="/habilidade/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                            <a href="/habilidade/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                        </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <h3>Cadestre uma nova habilidade!</h3>
+                <form action="/habilidade/save" method="POST">
+                    <div class="form-group">
+                        <label for="habilidade">Interesses:</label>
+                        <input id="habilidade" type="text" class="form-control" name="habilidade" placeholder="Digite nova habilidade" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

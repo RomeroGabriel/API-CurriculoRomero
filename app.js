@@ -9,6 +9,7 @@ var indexRouter     = require('./routes/index');
 var interesseRouter = require('./routes/interesses');
 var formacaoRouter = require('./routes/formacao');
 var atividadeRouter = require('./routes/atividade');
+var habilidadeRouter = require('./routes/habilidade');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/interesse', interesseRouter);
 app.use('/formacao', formacaoRouter);
 app.use('/atividade', atividadeRouter);
+app.use('/habilidade', habilidadeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
