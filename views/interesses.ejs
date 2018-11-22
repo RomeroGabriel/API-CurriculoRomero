@@ -17,7 +17,17 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-8">
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
+                        <% if(!inte || inte.length == 0) {%>
+                            <h4>Não existem interesses cadastrados</h4>
+                        <% } else { %>
+                            <% for (i of inte) { %>
+                        <li class="list-group-item">
+                            <%= i.informacao %>
+                            <a href="/interesse/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                            <a href="/interesse/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                        </li>
+                            <% } %>
+                        <% } %>
                     </ul>
                 </div>
 

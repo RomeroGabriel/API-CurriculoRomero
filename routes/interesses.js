@@ -3,10 +3,10 @@ var router = express.Router();
 var controller = require('../controllers/interessesController.js');
 
 /* GET interesses page. */
-router.get('/', function(req, res, next) {
-  res.render('interesses', { title: 'Api Curriculo Romero' });
-});
-
+router.get('/', controller.getAll);
 router.post('/save', controller.save);
+router.get('/delete/:id', controller.delete);
+router.get('/editarView/:id', controller.editarView);
+router.post('/edit', controller.editar);
 
 module.exports = router;
