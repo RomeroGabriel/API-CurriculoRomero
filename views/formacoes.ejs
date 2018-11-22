@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formação</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h1 class="text-center">Formação</h1>
+
+                <div class="dropdown-divider"></div>
+                <h3>Todos as formações cadastradas</h3>
+
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <ul class="list-group">
+                        <% if(!inte || inte.length == 0) {%>
+                            <h4>Não existem formações cadastrados</h4>
+                        <% } else { %>
+                            <% for (i of inte) { %>
+                        <li class="list-group-item">
+                            <%= i.informacao %>
+                            <a href="/formacao/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
+                            <a href="/formacao/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
+                        </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>
+
+                <div class="dropdown-divider"></div>
+                <h3>Cadestre uma nova formacao!</h3>
+                <form action="/formacao/save" method="POST">
+                    <div class="form-group">
+                        <label for="formacao">Interesses:</label>
+                        <input id="formacao" type="text" class="form-control" name="formacao" placeholder="Digite nova formacao" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
