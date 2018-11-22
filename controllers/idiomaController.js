@@ -19,6 +19,13 @@ module.exports = {
         });
     },
 
+    getAllOut: function (req, res) {
+        modelIdioma.find(function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar atividades', error: err }) };
+            return res.json(inte);
+        });
+    },
+
     delete: function (req, res) {
         var id = req.params.id;
         modelIdioma.findByIdAndRemove(id, function (err, inte) {

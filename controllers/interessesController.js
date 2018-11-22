@@ -18,6 +18,13 @@ module.exports = {
         });
     },
 
+    getAllOut: function (req, res) {
+        modelInteresse.find(function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar atividades', error: err }) };
+            return res.json(inte);
+        });
+    },
+
     delete: function (req, res) {
         var id = req.params.id;
         modelInteresse.findByIdAndRemove(id, function (err, inte) {
