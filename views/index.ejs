@@ -11,10 +11,25 @@
 
   <div class="container">
     <div class="row">
+      <% if(true) {%>
       <div class="col-sm-12 col-md-12 col-lg-12">
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label for="login">Login:</label>
+            <input id="login" type="text" class="form-control" name="login" placeholder="Digite o login" />
+          </div>
+          <div class="form-group">
+              <label for="senha">Senha:</label>
+              <input id="senha" type="password" class="form-control" name="senha" placeholder="Digite a senha" />
+            </div>
+          <button type="submit" class="btn btn-primary text-center">Salvar</button>
+        </form>
+      </div>
+      <% } else { %>
+      <div class="col-sm-12 col-md-12 col-lg-12 hidden">
         <h1 class="text-center">Bem Vindo!</h1>
         <p>Selecione alguma das seções para manipular os dados</p>
-        
+
         <div class="list-group">
           <a href="/interesse" class="list-group-item list-group-item-action">Interesses</a>
           <a href="/formacao" class="list-group-item list-group-item-action">Formação</a>
@@ -27,6 +42,7 @@
           <a href="/port" class="list-group-item list-group-item-action">Portfolio</a>
         </div>
       </div>
+      <% } %>
     </div>
   </div>
 

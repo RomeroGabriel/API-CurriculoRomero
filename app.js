@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 var cors = require('cors');
+var firebase = require('firebase');
 
 var indexRouter     = require('./routes/index');
 var interesseRouter = require('./routes/interesses');
@@ -17,6 +18,17 @@ var contatoProfissaoRouter = require('./routes/contatoProfissao');
 var RedesRouter = require('./routes/redeSocial');
 var PortRouter = require('./routes/port');
 var app = express();
+var veri = false;
+
+var config = {
+  apiKey: "AIzaSyA6z7vlyidaKARufrOAzl30vn5rTWOvjhg",
+  authDomain: "curriculo-4c0d1.firebaseapp.com",
+  databaseURL: "https://curriculo-4c0d1.firebaseio.com",
+  projectId: "curriculo-4c0d1",
+  storageBucket: "",
+  messagingSenderId: "570122890097"
+};
+firebase.initializeApp(config);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +51,28 @@ app.use('/biografia', biografiaRouter);
 app.use('/contatoProfissao', contatoProfissaoRouter);
 app.use('/rede', RedesRouter);
 app.use('/port', PortRouter);
+
+
+app.post('/login', function(req, res, next){
+  var email = req.body.login;
+  var password = req.body.senha;
+  firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+    veri = true;
+    res.render('index', { veri });
+  }).catch(function(error) {
+
+  });
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (!user) {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
