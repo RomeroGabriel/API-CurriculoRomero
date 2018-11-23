@@ -13,12 +13,22 @@
                 <h1 class="text-center">Habilidades</h1>
 
                 <div class="dropdown-divider"></div>
+                <h3>Pesquise por uma habilidades</h3>
+                <form action="/habilidade/get" method="post">
+                    <div class="form-group">
+                        <label for="obj">Buscar:</label>
+                        <input id="obj" type="text" class="form-control" name="obj" placeholder="Buscar habilidade"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">BUSCAR</button>
+                </form>
+
+                <div class="dropdown-divider"></div>
                 <h3>Todas as Habilidades cadastradas</h3>
 
                 <div class="col-sm-12 col-md-12 col-lg-8">
                     <ul class="list-group">
                         <% if(!inte || inte.length == 0) {%>
-                            <h4>Não existem atividades cadastrados</h4>
+                            <h4>Não existem habilidades cadastradas</h4>
                         <% } else { %>
                             <% for (i of inte) { %>
                         <li class="list-group-item">

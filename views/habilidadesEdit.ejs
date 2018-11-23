@@ -11,7 +11,9 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <h1 class="text-center">Habilidades-Edição</h1>
-
+                <% if(!inte || inte.length == 0) {%>
+                    <h4>Não existem o interesse buscado</h4>
+                <% } else { %>
                 <div class="dropdown-divider"></div>
                 <h3>Editar aabilidade!</h3>
                 <form action="/habilidade/edit" method="POST">
@@ -22,6 +24,7 @@
                     <input type="hidden" name="id" value="<%= inte._id %>" />
                     <button type="submit" class="btn btn-primary text-center">Editar</button>
                 </form>
+                <% } %>
             </div>
         </div>
     </div>

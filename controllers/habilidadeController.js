@@ -18,6 +18,14 @@ module.exports = {
         });
     },
 
+    get: function (req, res) {
+        var obj = req.body.obj;
+        modelHabilidade.findOne({ habilidade: obj }, function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar habilidade', error: err }) };
+            return res.render('habilidadesEdit', { inte });
+        });
+    },
+
     getAllOut: function (req, res) {
         modelHabilidade.find(function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar atividades', error: err }) };
