@@ -18,6 +18,14 @@ module.exports = {
         });
     },
 
+    get: function (req, res) {
+        var obj = req.body.obj;
+        modelAtividade.findOne({ informacao: obj }, function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar atividades', error: err }) };
+            return res.render('atividadesEdit', { inte });
+        });
+    },
+
     getAllOut: function (req, res) {
         modelAtividade.find(function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar atividades', error: err }) };
