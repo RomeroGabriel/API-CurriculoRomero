@@ -18,6 +18,15 @@ module.exports = {
         });
     },
 
+    get: function (req, res) {
+        var obj = req.body.obj;
+        console.log(obj)
+        modelInteresse.findOne({ informacao: obj }, function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar interesses', error: err }) };
+            return res.render('interessesEdit', { inte });;
+        });
+    },
+
     getAllOut: function (req, res) {
         modelInteresse.find(function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar atividades', error: err }) };

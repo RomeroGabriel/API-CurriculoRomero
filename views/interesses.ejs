@@ -13,6 +13,16 @@
                 <h1 class="text-center">Interesses</h1>
 
                 <div class="dropdown-divider"></div>
+                <h3>Pesquise por um interesse</h3>
+                <form action="/interesse/get" method="post">
+                    <div class="form-group">
+                        <label for="obj">Buscar:</label>
+                        <input id="obj" type="text" class="form-control" name="obj" placeholder="Buscar interesse" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">BUSCAR</button>
+                </form>
+
+                <div class="dropdown-divider"></div>
                 <h3>Todos os Interesses cadastrados</h3>
 
                 <div class="col-sm-12 col-md-12 col-lg-8">
