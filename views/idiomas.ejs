@@ -13,20 +13,31 @@
                 <h1 class="text-center">Idiomas</h1>
 
                 <div class="dropdown-divider"></div>
+                <h3>Pesquise por um idioma</h3>
+                <form action="/idioma/get" method="post">
+                    <div class="form-group">
+                        <label for="obj">Buscar:</label>
+                        <input id="obj" type="text" class="form-control" name="obj" placeholder="Buscar idioma" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">BUSCAR</button>
+                </form>
+
+                <div class="dropdown-divider"></div>
                 <h3>Todas os Idiomas cadastrados</h3>
 
                 <div class="col-sm-12 col-md-12 col-lg-8">
                     <ul class="list-group">
                         <% if(!inte || inte.length == 0) {%>
-                            <h4>Não existem idiomas cadastrados</h4>
+                        <h4>Não existem idiomas cadastrados</h4>
                         <% } else { %>
-                            <% for (i of inte) { %>
+                        <% for (i of inte) { %>
                         <li class="list-group-item">
-                            <%= i.idioma %> - Nível: <%= i.nivel %>
+                            <%= i.idioma %> - Nível:
+                            <%= i.nivel %>
                             <a href="/idioma/editarView/<%= i._id %>" class="badge badge-primary">Editar</a>
                             <a href="/idioma/delete/<%= i._id %>" class="badge badge-danger">Excluir</a>
                         </li>
-                            <% } %>
+                        <% } %>
                         <% } %>
                     </ul>
                 </div>

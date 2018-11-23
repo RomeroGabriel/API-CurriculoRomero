@@ -12,6 +12,14 @@ module.exports = {
         });
     },
 
+    get: function (req, res) {
+        var obj = req.body.obj;
+        modelIdioma.findOne({ idioma: obj }, function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar idioma', error: err }) };
+            return res.render('idiomasEdit', { inte });
+        });
+    },
+
     getAll: function (req, res) {
         modelIdioma.find(function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar idiomas', error: err }) };
