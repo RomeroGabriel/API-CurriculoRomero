@@ -58,9 +58,10 @@ app.post('/login', function(req, res, next){
   var password = req.body.senha;
   firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
     veri = true;
-    res.render('index', { veri });
+    res.render('index', { veri : true });
   }).catch(function(error) {
-
+    veri = false;
+    res.render('index', { veri: false });
   });
 });
 

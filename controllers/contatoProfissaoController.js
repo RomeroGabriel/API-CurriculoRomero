@@ -20,10 +20,10 @@ module.exports = {
     },
 
     getLast: function (req, res) {
-        modelContatoProfissao.findOne({}, {}, { sort: { 'dataCriacao' : 1 } }, function (err, inte) {
+        modelContatoProfissao.findOne({}, function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar contato profissao', error: err }) };
             return res.json(inte);
-        });
+        }).sort({ 'dataCriacao' : -1 });
     },
 
     delete: function (req, res) {

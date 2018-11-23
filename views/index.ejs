@@ -11,7 +11,7 @@
 
   <div class="container">
     <div class="row">
-      <% if(true) {%>
+      <% if(!veri) {%>
       <div class="col-sm-12 col-md-12 col-lg-12">
         <form action="/login" method="POST">
           <div class="form-group">
@@ -26,7 +26,7 @@
         </form>
       </div>
       <% } else { %>
-      <div class="col-sm-12 col-md-12 col-lg-12 hidden">
+      <div class="col-sm-12 col-md-12 col-lg-12">
         <h1 class="text-center">Bem Vindo!</h1>
         <p>Selecione alguma das seções para manipular os dados</p>
 

@@ -4,7 +4,8 @@ module.exports = {
     save: function (req, res) {
         var biografia = new modelBiografia({
             mini: req.body.mini,
-            inteira: req.body.inteira
+            inteira: req.body.inteira,
+            dataCriacao: Date.now()
         });
         biografia.save(function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao salvar biografia', error: err }) };
@@ -20,10 +21,10 @@ module.exports = {
     },
 
     getLast: function (req, res) {
-        modelBiografia.findOne({}, {}, { sort: { 'created_at' : -1 } }, function (err, inte) {
+        modelBiografia.findOne({}, function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar biografia', error: err }) };
             return res.json(inte);
-        });
+        }).sort({ 'dataCriacao' : -1 });
     },
 
     delete: function (req, res) {

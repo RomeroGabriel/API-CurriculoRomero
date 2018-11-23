@@ -4,7 +4,7 @@ var firebase = require('firebase');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Api Curriculo Romero' });
+  res.render('index', { title: 'Api Curriculo Romero', veri: false });
 });
 
 module.exports = router;
