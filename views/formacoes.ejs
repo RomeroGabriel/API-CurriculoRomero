@@ -13,6 +13,17 @@
                 <h1 class="text-center">Formação</h1>
 
                 <div class="dropdown-divider"></div>
+                <h3>Pesquise por uma formação</h3>
+                <form action="/formacao/get" method="post">
+                    <div class="form-group">
+                        <label for="obj">Buscar:</label>
+                        <input id="obj" type="text" class="form-control" name="obj" placeholder="Buscar formação" />
+                    </div>
+                    <button type="submit" class="btn btn-primary text-center">BUSCAR</button>
+                </form>
+
+
+                <div class="dropdown-divider"></div>
                 <h3>Todos as formações cadastradas</h3>
 
                 <div class="col-sm-12 col-md-12 col-lg-8">

@@ -18,6 +18,14 @@ module.exports = {
         });
     },
 
+    get: function (req, res) {
+        var obj = req.body.obj;
+        modelFormacao.findOne({ informacao: obj }, function (err, inte) {
+            if (err) { return res.status(500).json({ message: 'Erro ao pegar formacao', error: err }) };
+            return res.render('formacoesEdit', { inte });
+        });
+    },
+
     getAllOut: function (req, res) {
         modelFormacao.find(function (err, inte) {
             if (err) { return res.status(500).json({ message: 'Erro ao pegar formacao', error: err }) };
